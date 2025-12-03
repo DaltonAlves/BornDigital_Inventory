@@ -96,10 +96,9 @@ def build_directory_html(path):
     file_count = 0
 
     for entry in entries:
-        # debug each iteration minimally
+        # debug
         full_path = os.path.join(path, entry)
         # print a tiny debug for the very first few entries only
-        # (avoid huge output if folder has thousands of files)
         if file_count < 3 and len(entries) < 20:
             print(f"[DEBUG] processing entry: {entry!r} -> {full_path!r}")
 
@@ -133,11 +132,12 @@ html_head = f"""<!DOCTYPE html>
 <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <title>{title}</title>
+<p class="subtitle">Example subtext...These files are not avaliable for online access. Please contact the Special Collections Research Center to arrange access...</p>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <header>
-<div class='search-bar'><input type='text' id='searchInput' placeholder='Search by name or MIME type...'></div>
+<div class='search-bar'><input type='text' id='searchInput' placeholder='Search by file name or MIME type...'></div>
 <div class='legend'><div>Name</div><div>MIME Type</div><div>Size</div><div>Last Modified</div></div>
 </header>
 <main><ul class='tree'>
