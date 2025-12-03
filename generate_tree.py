@@ -8,7 +8,7 @@ import traceback
 # config
 ROOT_DIR = r"/mnt/f/ms2215_accession2023_47"
 OUTPUT_FILE = "index.html"
-title = '2025-029'
+title = 'ms2215_accession2023_47 Inventory'
 
 #helpers/utils
 def format_size(size_bytes):
@@ -126,21 +126,28 @@ def build_directory_html(path):
     return "".join(folders_html + files_html), file_count, total_size
 
 # static html (always the same)
-html_head = f"""<!DOCTYPE html>
-<html lang='en'>
+html_head = f"""
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
-<p class="subtitle">Example subtext...These files are not avaliable for online access. Please contact the Special Collections Research Center to arrange access...</p>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <header>
-<div class='search-bar'><input type='text' id='searchInput' placeholder='Search by file name or MIME type...'></div>
-<div class='legend'><div>Name</div><div>MIME Type</div><div>Size</div><div>Last Modified</div></div>
+  <h1>{title}</h1>
+  <p class="subtitle">Example subtext: These files are not avaliable for online access. Please contact the Special Collections Research Center to arrange access...</p>
+  <div class='search-bar'>
+      <input type='text' id='searchInput' placeholder='Search by file name or MIME type...'>
+  </div>
+  <div class='legend'>
+      <div>Name</div><div>MIME Type</div><div>Size</div><div>Last Modified</div>
+  </div>
 </header>
-<main><ul class='tree'>
+<main>
+<ul class='tree'>
 """
 
 html_foot = """
